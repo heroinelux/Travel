@@ -2,11 +2,11 @@
 	<div>
 		<div class="title">热销推荐</div>
 		<ul>
-			<li class="item" v-for="item of recommendList" :key="item.id">
+			<li class="item" v-for="item of list" :key="item.id">
 				<img class="item-img" :src="item.imgUrl">
 				<div class="item-info">
-					<p class="item-title">{{item.imgTitle}}</p>
-					<p class="item-desc">{{item.imgDesc}}</p>
+					<p class="item-title">{{item.title}}</p>
+					<p class="item-desc">{{item.desc}}</p>
 					<button class="item-button">查看详情</button>
 				</div>
 			</li>
@@ -17,39 +17,22 @@
 <script>
 	export default{
 		name:"HomeRecommend",
-		data:function(){
-			return {
-				recommendList:[{
-					id:"0001",
-					imgUrl:"http://img1.qunarzz.com/sight/p0/1806/4f/4f448c94f180b36da3.water.jpg_200x200_9ef8867f.jpg",
-					imgTitle:"36kr没想到未来城",
-					imgDesc:"畅玩36kr没想到未来城"
-				},{
-					id:"0002",
-					imgUrl:"http://img1.qunarzz.com/sight/p0/1806/4f/4f448c94f180b36da3.water.jpg_200x200_9ef8867f.jpg",
-					imgTitle:"36kr没想到未来城",
-					imgDesc:"畅玩36kr没想到未来城"
-				},{
-					id:"0003",
-					imgUrl:"http://img1.qunarzz.com/sight/p0/1806/4f/4f448c94f180b36da3.water.jpg_200x200_9ef8867f.jpg",
-					imgTitle:"36kr没想到未来城",
-					imgDesc:"畅玩36kr没想到未来城"
-				}],
-			}	
+		props:{
+			list:Array
 		}
 	}
 </script>
 
 <style lang="stylus" scoped>
 @import "~@/assets/styles/varibles.styl"
+@import "~@/assets/styles/mixins.styl"
 	.title
 		margin-top:.2rem
 		background:#eee
 		text-indent:.2rem
 		line-height:.8rem
 	.item
-		margin:.2rem
-		margin-right:0
+		margin:.2rem 0 0 .2rem
 		overflow:hidden
 		display:flex
 		height:1.9rem
@@ -67,6 +50,7 @@
 				font-size:.32rem
 				ellipsis()
 			.item-desc
+				margin-right:.2rem
 				line-height:.4rem
 				color:#ccc
 				ellipsis()
