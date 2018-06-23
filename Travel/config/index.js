@@ -32,7 +32,6 @@ module.exports = {
     proxyTable: {
         '/api':{
             target:'localhost:8080',
-            changeOrigin:true,
             pathRewrite:{
                 '^/api':'/static/mock'
             }

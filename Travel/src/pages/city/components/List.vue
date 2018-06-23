@@ -10,64 +10,15 @@
 			<div class="area">
 				<div class="title">热门城市</div>
 				<div class="content">
-					<div class="btn-wrapper"><div class="btn">北京</div></div>
-					<div class="btn-wrapper"><div class="btn">北京</div></div>
-					<div class="btn-wrapper"><div class="btn">北京</div></div>
-					<div class="btn-wrapper"><div class="btn">北京</div></div>
-					<div class="btn-wrapper"><div class="btn">北京</div></div>
-					<div class="btn-wrapper"><div class="btn">北京</div></div>
-					<div class="btn-wrapper"><div class="btn">北京</div></div>
+					<div class="btn-wrapper" v-for="(item,index) of hot" :key="item.id">
+						<div class="btn">{{item.name}}</div>
+					</div>
 				</div>
 			</div>
-			<div class="area">
-				<div class="title">A</div>
+			<div class="area" v-for="(item,key) of cities" :key="key">
+				<div class="title">{{key}}</div>
 				<div class="item-list">
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-				</div>
-			</div>
-			<div class="area">
-				<div class="title">A</div>
-				<div class="item-list">
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-				</div>
-			</div>
-			<div class="area">
-				<div class="title">A</div>
-				<div class="item-list">
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
-					<div class="item">lanqi</div>
+					<div class="item" v-for="innerItem of item">{{innerItem.name}}</div>
 				</div>
 			</div>
 		</div>
@@ -78,6 +29,10 @@
 	import BScroll from "better-scroll"
 	export default{
 		name:"CityList",
+		props:{
+			cities:Object,
+			hot:Array
+		},
 		mounted(){
 			this.scroll=new BScroll(this.$refs.wrapper);
 		}
