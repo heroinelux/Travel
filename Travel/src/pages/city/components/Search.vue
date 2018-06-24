@@ -1,3 +1,4 @@
+<!-- 也可以更改 -->
 <template>
 	<div>
 		<div class="search">
@@ -5,7 +6,8 @@
 		</div>
 		<div class="search-content" v-show="keyword" ref="search">
 			<ul>
-				<li class="search-item" v-for="item of list" :key="item.id">{{item.name}}
+				<li class="search-item" v-for="item of list" :key="item.id"
+				@click="handleCityClick(item.name)">{{item.name}}
 				</li>
 				<li class="search-item" v-show="hasNoData">没有找到匹配数据</li>
 			</ul>
@@ -25,6 +27,12 @@
 				keyword:"",
 				timer:null,
 				list:[]
+			}
+		},
+		methods:{
+			handleCityClick(city){
+				this.$store.commit("changeCity",city);
+				this.$router.push("/");
 			}
 		},
 		computed:{
