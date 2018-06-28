@@ -18,7 +18,7 @@
 <script>
 	import Bscroll from "better-scroll"
 	export default{
-		name:"CitySerach",
+		name:"CitySearch",
 		props:{
 			cities:Object
 		},
